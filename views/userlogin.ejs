@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System</title>
+    <%- include('partials/header.ejs') %>
+</head>
+<body>
+    <%- include('partials/nav.ejs') %>
+
+    <section id="contact" style="margin-top: 5%;">
+        <div class="container-lg" >
+            <div class="text-center">
+                <% if(typeof(message)!=undefined){ %>
+                    <h2><%= message %></h2>
+                <% } %>
+            </div>
+            
+            <div class="text-center">
+                <h2>User Login</h2>
+            </div>
+            <div class="row justify-content-center my-5" >
+                <div class="col-lg-6">
+                    <form action="/userlogin" method="POST">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" name="email" class="form-control" required>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                        <br>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+
+<%- include('partials/foot.ejs') %>
+</body>
+</html>
+
+

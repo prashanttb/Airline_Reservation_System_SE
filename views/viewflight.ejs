@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System</title>
+    <%- include('partials/header.ejs') %>
+</head>
+<body>
+    <%- include('partials/adminnav.ejs') %>
+
+    <div class="container-lg" style="margin-top: 5%;">
+
+        <div class="text-center">
+            <h1>All Scheduled Flights</h1>
+        </div>
+        <div class="container">
+
+            <table class="table" style="margin-top: 2%;">
+                <tr>
+                    <th>Flight Id</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Time</th>
+                    <th>Date</th>
+                    <th>Ticket Price</th>
+                    <th>Cancel</th>
+                </tr>
+                <form action="/cancelflight" method="POST">
+                <% for(var i=0;i<flights.length;i++ ){ %>
+                    <tr>
+                        <td><%= flights[i].flight_id %></td>
+                        <td><%= flights[i].source %></td>
+                        <td><%= flights[i].destination %></td>
+                        <td><%= flights[i].date %></td>
+                        <td><%= flights[i].arrivaltime %></td>
+                        <td><%= flights[i].departuretime %></td>
+                        <td><%= flights[i].date %></td>
+                        <td><%= flights[i].price %></td>
+                        <% var d = new Date().toISOString().slice(0,10) %>
+                        <% if(flights[i].date > d){ %>
+                        <td><button class="btn btn-info" id="<%= flights[i].flight_id %>"  onclick="funct(this.id)" value="<%= flights[i].flight_id %>" type="submit">Cancel</button></td>
+                        <script>
+                        function funct(clicked_id){
+                            document.getElementById(clicked_id).name = 'flightid';
+                        }
+                        </script>
+                        <% }else{ %>
+                            <td>Cannot be cancelled</td>
+                        <% } %>
+                    </tr>
+                    <% } %>
+                </form>
+            </table>
+
+        </div>
+        
+
+    </div>
+
+<%- include('partials/foot.ejs') %>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System</title>
+    <%- include('partials/header.ejs') %>
+</head>
+<body>
+    <%- include('partials/adminnav.ejs') %>
+    
+    <div class="container-lg" style="margin-top: 5%;">
+
+        <div class="text-center">
+            <h1>Booked Tickets</h1>
+        </div>
+        
+        <div class="mg-5" style="margin-top: 2%;">
+
+            <table class="table">
+                <tr>
+                    <th>Flight Id</th>
+                    <th>Name of Passenger</th>
+                    <th>Seat Number</th>
+                    <th>Class</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Time</th>
+                    <th>Ticket Price</th>
+                </tr>
+                <% for(var i=0;i<journey.length;i++){ %>
+                    <tr>
+                        <td><%= flight[i][0].flight_id %></td>
+                        <td><%= journey[i].nameofpassenger %></td>
+                        <td><%= journey[i].seat_no %></td>
+                        <td><%= journey[i].seatclass %></td>
+                        <td><%= flight[i][0].source %></td>
+                        <td><%= flight[i][0].destination %></td>
+                        <td><%= flight[i][0].arrivaltime %></td>
+                        <td><%= flight[i][0].departuretime %></td>
+                        <td><%= flight[i][0].price %></td>
+                    </tr>
+                <% } %>
+            </table>
+
+        </div>
+
+        
+
+    </div>
+
+<%- include('partials/foot.ejs') %>
+</body>
+</html>
+
+
+

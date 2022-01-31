@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System</title>
+    <%- include('partials/header.ejs') %>
+</head>
+<body>
+    <%- include('partials/adminnav.ejs') %>
+    
+    <section id="contact" style="margin-top: 5%;">
+        <div class="container-lg">
+            <div class="text-center">
+                <h2>Add New flights here</h2>
+            </div>
+            <div class="row justify-content-center my-5">
+                <div class="col-lg-6">
+                    <form action="/addflight" method="POST">
+                        <label class="form-label" for="flightid">Flight Id</label>
+                        <input class="form-control" type="number" placeholder="Flight id" name="flightid">
+                        <br>
+                        <label class="form-label" for="source">Source</label>
+                        <input class="form-control" type="text" placeholder="Source" name="source">
+                        <br>
+                        <label class="form-label" for="destination">Destination</label>
+                        <input class="form-control" type="text" placeholder="Destination" name="destination">
+                        <br>
+                        <label class="form-label" for="date">Date</label>
+                        <input class="form-control" type="date" name="date">
+                        <br>
+                        <label class="form-label" for="arrivaltime">Arrival Time</label>
+                        <input class="form-control" type="time" name="arrivaltime">
+                        <br>
+                        <label class="form-label" for="departuretime">Departure Time</label>
+                        <input class="form-control" type="time" name="departuretime">
+                        <br>
+                        <label class="form-label" for="price">Ticket Price</label>
+                        <input class="form-control" type="number" placeholder="Rs" name="price">
+                        <br>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<%- include('partials/foot.ejs') %>
+</body>
+</html>
+
+
+
